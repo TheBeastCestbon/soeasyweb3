@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoEasyWeb3 - Your Ultimate Gateway to the Decentralized Web</title>
+    <meta name="description" content="Discover the best Web3 platforms, follow crypto influencers, access learning resources, and start your blockchain journey with trusted exchange invitations.">
+    <meta name="keywords" content="Web3, blockchain, cryptocurrency, DeFi, NFT, crypto exchanges, Web3 navigation, decentralized web">
+    <link rel="canonical" href="https://soeasyweb3.com">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .tab-active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .floating-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .apple-blur {
+            backdrop-filter: blur(20px);
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        .tooltip {
+            position: relative;
+        }
+        .tooltip-text {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            top: -45px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            padding: 8px 12px;
+            z-index: 1000;
+            font-size: 14px;
+            white-space: nowrap;
+            transition: opacity 0.3s, visibility 0.3s;
+            backdrop-filter: blur(10px);
+        }
+        .tooltip-text::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: rgba(0, 0, 0, 0.9) transparent transparent transparent;
+        }
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="apple-blur sticky top-0 z-50 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">W3</span>
+                    </div>
+                    <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                        SoEasyWeb3
+                    </h1>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#platforms" class="text-gray-700 hover:text-blue-600 transition-colors">Platforms</a>
+                    <a href="#influencers" class="text-gray-700 hover:text-blue-600 transition-colors">Influencers</a>
+                    <a href="#resources" class="text-gray-700 hover:text-blue-600 transition-colors">Resources</a>
+                    <a href="#exchanges" class="text-gray-700 hover:text-blue-600 transition-colors">Exchanges</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="floating-animation">
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6">
+                    Your Ultimate Gateway to the<br>
+                    <span class="bg-gradient-to-r from-yellow-300 to-pink-300 bg-clip-text text-transparent">
+                        Decentralized Web
+                    </span>
+                </h1>
+            </div>
+            <p class="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
+                Discover the best Web3 platforms, follow crypto influencers, access learning resources, and start your blockchain journey with trusted exchange invitations.
+            </p>
+            <button onclick="scrollToSection('platforms')" class="bg-white text-purple-600 px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg transition-all duration-300 hover:scale-105">
+                Explore Web3 Now →
+            </button>
+        </div>
+    </section>
+
+    <!-- Web3 Platforms Section -->
+    <section id="platforms" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Top Web3 Platforms</h2>
+            
+            <!-- Tab Navigation -->
+            <div class="flex flex-wrap justify-center mb-12 gap-2">
+                <button onclick="switchTab('defi')" id="tab-defi" class="tab-button tab-active px-6 py-3 rounded-full font-semibold transition-all duration-300 tooltip">
+                    DeFi
+                    <span class="tooltip-text">Decentralized Finance - Lending, borrowing, and trading without intermediaries</span>
+                </button>
+                <button onclick="switchTab('nft')" id="tab-nft" class="tab-button bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:bg-gray-300 tooltip">
+                    NFT
+                    <span class="tooltip-text">Non-Fungible Tokens - Digital collectibles and unique digital assets</span>
+                </button>
+                <button onclick="switchTab('dex')" id="tab-dex" class="tab-button bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:bg-gray-300 tooltip">
+                    DEX
+                    <span class="tooltip-text">Decentralized Exchanges - Trade cryptocurrencies without central authority</span>
+                </button>
+                <button onclick="switchTab('gamefi')" id="tab-gamefi" class="tab-button bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:bg-gray-300 tooltip">
+                    GameFi
+                    <span class="tooltip-text">Gaming Finance - Play-to-earn games and blockchain gaming platforms</span>
+                </button>
+                <button onclick="switchTab('dao')" id="tab-dao" class="tab-button bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:bg-gray-300 tooltip">
+                    DAO
+                    <span class="tooltip-text">Decentralized Autonomous Organizations - Community-governed organizations</span>
+                </button>
+            </div>
+
+            <!-- Tab Content -->
+            <div id="platform-content" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- DeFi Platforms (default) -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Crypto Influencers Section -->
+    <section id="influencers" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Top Crypto Influencers</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Influencer cards will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Resources Section -->
+    <section id="resources" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Web3 Learning Resources</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Beginner Guides -->
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">📚 Essential Reading</h3>
+                    <div class="space-y-4">
+                        <!-- Books will be populated by JavaScript -->
+                    </div>
+                </div>
+                <!-- Online Resources -->
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">🎓 Online Courses</h3>
+                    <div class="space-y-4">
+                        <!-- Courses will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exchange Invitations Section -->
+    <section id="exchanges" class="py-20 gradient-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold text-white mb-8">Start Your Crypto Journey</h2>
+            <p class="text-xl text-white/90 mb-12 max-w-3xl mx-auto">
+                Join millions of traders on the world's most trusted cryptocurrency exchanges. 
+                Use our exclusive invitation codes to get special bonuses and reduced fees.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Exchange cards will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="flex items-center justify-center space-x-2 mb-4">
+                    <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">W3</span>
+                    </div>
+                    <h3 class="text-2xl font-bold">SoEasyWeb3</h3>
+                </div>
+                <p class="text-gray-400 mb-6">Your gateway to the decentralized future</p>
+                <p class="text-gray-500 text-sm">
+                    © 2024 SoEasyWeb3.com. All rights reserved. 
+                    <span class="block mt-2">Empowering your Web3 journey with curated resources and trusted partnerships.</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Platform data
+        const platformData = {
+            defi: [
+                { name: 'Uniswap', icon: '🦄', url: 'https://uniswap.org', desc: 'Leading decentralized exchange protocol' },
+                { name: 'Aave', icon: '👻', url: 'https://aave.com', desc: 'Open source liquidity protocol' },
+                { name: 'Compound', icon: '🏛️', url: 'https://compound.finance', desc: 'Autonomous interest rate protocol' },
+                { name: 'MakerDAO', icon: '⚡', url: 'https://makerdao.com', desc: 'Decentralized stablecoin platform' },
+                { name: 'Curve', icon: '📈', url: 'https://curve.fi', desc: 'Exchange liquidity pool for stablecoins' },
+                { name: 'Yearn Finance', icon: '🔵', url: 'https://yearn.finance', desc: 'Yield farming optimization protocol' },
+                { name: 'SushiSwap', icon: '🍣', url: 'https://sushi.com', desc: 'Community-driven DEX platform' },
+                { name: 'Balancer', icon: '⚖️', url: 'https://balancer.fi', desc: 'Automated portfolio manager' },
+                { name: '1inch', icon: '📊', url: 'https://1inch.io', desc: 'DEX aggregator and yield farming' },
+                { name: 'Convex Finance', icon: '🔺', url: 'https://convexfinance.com', desc: 'Boost Curve LP rewards' }
+            ],
+            nft: [
+                { name: 'OpenSea', icon: '🌊', url: 'https://opensea.io', desc: 'Largest NFT marketplace' },
+                { name: 'Blur', icon: '💨', url: 'https://blur.io', desc: 'Professional NFT trading platform' },
+                { name: 'Magic Eden', icon: '✨', url: 'https://magiceden.io', desc: 'Leading Solana NFT marketplace' },
+                { name: 'Foundation', icon: '🏛️', url: 'https://foundation.app', desc: 'Curated NFT art platform' },
+                { name: 'SuperRare', icon: '💎', url: 'https://superrare.com', desc: 'Digital art collectibles' },
+                { name: 'Nifty Gateway', icon: '🚪', url: 'https://niftygateway.com', desc: 'Premium NFT marketplace' },
+                { name: 'Rarible', icon: '🎨', url: 'https://rarible.com', desc: 'Community-owned NFT marketplace' },
+                { name: 'LooksRare', icon: '👀', url: 'https://looksrare.org', desc: 'Community-first NFT marketplace' },
+                { name: 'Async Art', icon: '🎭', url: 'https://async.art', desc: 'Programmable art platform' },
+                { name: 'KnownOrigin', icon: '🎪', url: 'https://knownorigin.io', desc: 'Digital art marketplace' }
+            ],
+            dex: [
+                { name: 'PancakeSwap', icon: '🥞', url: 'https://pancakeswap.finance', desc: 'Leading BSC decentralized exchange' },
+                { name: 'TraderJoe', icon: '☕', url: 'https://traderjoexyz.com', desc: 'Avalanche one-stop DeFi' },
+                { name: 'SpookySwap', icon: '👻', url: 'https://spookyswap.finance', desc: 'Fantom automated market maker' },
+                { name: 'QuickSwap', icon: '⚡', url: 'https://quickswap.exchange', desc: 'Polygon layer-2 DEX' },
+                { name: 'Honeyswap', icon: '🍯', url: 'https://honeyswap.org', desc: 'xDai decentralized exchange' },
+                { name: 'SpiritSwap', icon: '🔮', url: 'https://spiritswap.finance', desc: 'Fantom automated market maker' },
+                { name: 'Serum', icon: '🧪', url: 'https://www.projectserum.com', desc: 'Solana-based DEX protocol' },
+                { name: 'Raydium', icon: '☀️', url: 'https://raydium.io', desc: 'Solana automated market maker' },
+                { name: 'Orca', icon: '🐋', url: 'https://orca.so', desc: 'User-friendly Solana DEX' },
+                { name: 'JetSwap', icon: '🚀', url: 'https://jetswap.finance', desc: 'BSC next-generation DEX' }
+            ],
+            gamefi: [
+                { name: 'Axie Infinity', icon: '🎮', url: 'https://axieinfinity.com', desc: 'Leading play-to-earn game' },
+                { name: 'The Sandbox', icon: '🏖️', url: 'https://sandbox.game', desc: 'Virtual world metaverse' },
+                { name: 'Decentraland', icon: '🏙️', url: 'https://decentraland.org', desc: '3D virtual reality platform' },
+                { name: 'Splinterlands', icon: '⚔️', url: 'https://splinterlands.com', desc: 'Collectible card game' },
+                { name: 'Gods Unchained', icon: '🃏', url: 'https://godsunchained.com', desc: 'Free-to-play trading card game' },
+                { name: 'Illuvium', icon: '🌟', url: 'https://illuvium.io', desc: 'Open-world RPG adventure' },
+                { name: 'Star Atlas', icon: '🌌', url: 'https://staratlas.com', desc: 'Space exploration metaverse' },
+                { name: 'Gala Games', icon: '🎪', url: 'https://gala.games', desc: 'Blockchain gaming ecosystem' },
+                { name: 'Alien Worlds', icon: '👽', url: 'https://alienworlds.io', desc: 'NFT DeFi metaverse' },
+                { name: 'CryptoKitties', icon: '😸', url: 'https://cryptokitties.co', desc: 'Original blockchain collectibles' }
+            ],
+            dao: [
+                { name: 'Aragon', icon: '🏛️', url: 'https://aragon.org', desc: 'Build and manage DAOs' },
+                { name: 'DAOhaus', icon: '🏠', url: 'https://daohaus.club', desc: 'Community platform for DAOs' },
+                { name: 'Colony', icon: '🐜', url: 'https://colony.io', desc: 'Infrastructure for open organizations' },
+                { name: 'Snapshot', icon: '📸', url: 'https://snapshot.org', desc: 'Off-chain voting platform' },
+                { name: 'Boardroom', icon: '📊', url: 'https://boardroom.info', desc: 'Governance information hub' },
+                { name: 'Tally', icon: '📋', url: 'https://tally.xyz', desc: 'DAO governance dashboard' },
+                { name: 'Commonwealth', icon: '🤝', url: 'https://commonwealth.im', desc: 'Discussion and governance platform' },
+                { name: 'Coordinape', icon: '⭕', url: 'https://coordinape.com', desc: 'DAO coordination and rewards' },
+                { name: 'Gnosis Safe', icon: '🔒', url: 'https://gnosis-safe.io', desc: 'Multi-signature wallet for DAOs' },
+                { name: 'Mirror', icon: '🪞', url: 'https://mirror.xyz', desc: 'Decentralized publishing platform' }
+            ]
+        };
+
+        // Influencer data
+        const influencers = [
+            { name: 'Vitalik Buterin', twitter: '@VitalikButerin', desc: 'Co-founder of Ethereum', avatar: '🧙‍♂️' },
+            { name: 'Changpeng Zhao', twitter: '@cz_binance', desc: 'CEO of Binance', avatar: '👨‍💼' },
+            { name: 'Elon Musk', twitter: '@elonmusk', desc: 'Tesla CEO, Crypto Advocate', avatar: '🚀' },
+            { name: 'Anthony Pompliano', twitter: '@APompliano', desc: 'Bitcoin Advocate & Investor', avatar: '₿' },
+            { name: 'Cathie Wood', twitter: '@CathieDWood', desc: 'ARK Invest CEO', avatar: '📈' },
+            { name: 'Michael Saylor', twitter: '@saylor', desc: 'MicroStrategy Chairman', avatar: '⚡' }
+        ];
+
+        // Books and resources
+        const books = [
+            { title: 'Mastering Bitcoin', author: 'Andreas M. Antonopoulos', desc: 'Technical guide to Bitcoin and cryptocurrencies' },
+            { title: 'The Internet of Money', author: 'Andreas M. Antonopoulos', desc: 'Collection of talks on Bitcoin significance' },
+            { title: 'Blockchain Revolution', author: 'Don & Alex Tapscott', desc: 'How blockchain will change everything' },
+            { title: 'The Bitcoin Standard', author: 'Saifedean Ammous', desc: 'Economic analysis of Bitcoin' },
+            { title: 'Digital Gold', author: 'Nathaniel Popper', desc: 'The untold story of Bitcoin' }
+        ];
+
+        const courses = [
+            { title: 'MIT: Blockchain Technologies', provider: 'MIT OpenCourseWare', desc: 'Comprehensive blockchain course' },
+            { title: 'Cryptocurrency Course', provider: 'Coursera (Stanford)', desc: 'Introduction to cryptocurrencies' },
+            { title: 'Ethereum Developer Bootcamp', provider: 'Consensys Academy', desc: 'Build on Ethereum blockchain' },
+            { title: 'DeFi MOOC', provider: 'Berkeley', desc: 'Decentralized Finance fundamentals' },
+            { title: 'Web3 Development', provider: 'FreeCodeCamp', desc: 'Full-stack Web3 development' }
+        ];
+
+        // Exchange data
+        const exchanges = [
+            { 
+                name: 'Binance', 
+                logo: '🟡', 
+                bonus: 'Get 20% Commission Discount', 
+                code: 'SOEASYWEB3',
+                desc: 'World\'s largest crypto exchange with 350+ cryptocurrencies',
+                url: 'https://accounts.binance.com/register'
+            },
+            { 
+                name: 'OKX', 
+                logo: '⭕', 
+                bonus: 'Up to $10,000 Welcome Bonus', 
+                code: 'EASYWEB3',
+                desc: 'Leading crypto exchange with advanced trading features',
+                url: 'https://www.okx.com/join'
+            }
+        ];
+
+        // Initialize the page
+        function init() {
+            switchTab('defi');
+            renderInfluencers();
+            renderResources();
+            renderExchanges();
+        }
+
+        function switchTab(category) {
+            // Update tab buttons
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('tab-active');
+                btn.classList.add('bg-gray-200', 'text-gray-700');
+            });
+            
+            const activeTab = document.getElementById(`tab-${category}`);
+            activeTab.classList.add('tab-active');
+            activeTab.classList.remove('bg-gray-200', 'text-gray-700');
+
+            // Render platforms
+            const content = document.getElementById('platform-content');
+            content.innerHTML = platformData[category].map(platform => `
+                <div class="bg-white rounded-xl p-6 shadow-md card-hover">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-3xl">${platform.icon}</span>
+                        <a href="${platform.url}" target="_blank" 
+                           class="text-blue-600 hover:text-blue-800 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"/>
+                                <path d="M5 5a2 2 0 00-2 2v6a2 2 0 002 2h6a2 2 0 002-2v-1a1 1 0 10-2 0v1H5V7h1a1 1 0 000-2H5z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">${platform.name}</h3>
+                    <p class="text-gray-600 text-sm">${platform.desc}</p>
+                </div>
+            `).join('');
+        }
+
+        function renderInfluencers() {
+            const container = document.querySelector('#influencers .grid');
+            container.innerHTML = influencers.map(person => `
+                <div class="bg-white rounded-xl p-6 shadow-md card-hover text-center">
+                    <div class="text-4xl mb-4">${person.avatar}</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">${person.name}</h3>
+                    <a href="https://twitter.com/${person.twitter.replace('@', '')}" 
+                       target="_blank" 
+                       class="text-blue-500 hover:text-blue-700 font-semibold mb-3 block">
+                        ${person.twitter}
+                    </a>
+                    <p class="text-gray-600 text-sm">${person.desc}</p>
+                </div>
+            `).join('');
+        }
+
+        function renderResources() {
+            const booksContainer = document.querySelector('#resources .grid > div:first-child .space-y-4');
+            const coursesContainer = document.querySelector('#resources .grid > div:last-child .space-y-4');
+
+            booksContainer.innerHTML = books.map(book => `
+                <div class="bg-white rounded-lg p-4 shadow-sm border-l-4 border-blue-500">
+                    <h4 class="font-bold text-gray-900">${book.title}</h4>
+                    <p class="text-sm text-gray-600 mb-1">by ${book.author}</p>
+                    <p class="text-sm text-gray-700">${book.desc}</p>
+                </div>
+            `).join('');
+
+            coursesContainer.innerHTML = courses.map(course => `
+                <div class="bg-white rounded-lg p-4 shadow-sm border-l-4 border-purple-500">
+                    <h4 class="font-bold text-gray-900">${course.title}</h4>
+                    <p class="text-sm text-gray-600 mb-1">${course.provider}</p>
+                    <p class="text-sm text-gray-700">${course.desc}</p>
+                </div>
+            `).join('');
+        }
+
+        function renderExchanges() {
+            const container = document.querySelector('#exchanges .grid');
+            container.innerHTML = exchanges.map(exchange => `
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 text-center border border-white/20">
+                    <div class="text-6xl mb-4">${exchange.logo}</div>
+                    <h3 class="text-2xl font-bold text-white mb-2">${exchange.name}</h3>
+                    <div class="bg-yellow-400 text-black px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                        ${exchange.bonus}
+                    </div>
+                    <p class="text-white/90 text-sm mb-6">${exchange.desc}</p>
+                    <div class="bg-white/20 rounded-lg p-4 mb-6">
+                        <p class="text-white/80 text-sm mb-2">Invitation Code:</p>
+                        <code class="text-yellow-300 font-mono text-lg font-bold">${exchange.code}</code>
+                    </div>
+                    <a href="${exchange.url}" target="_blank" 
+                       class="bg-white text-purple-600 px-6 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105 inline-block">
+                        Sign Up Now →
+                    </a>
+                </div>
+            `).join('');
+        }
+
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
